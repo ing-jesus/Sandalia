@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Zapato Deportivo - Detalles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <header class="bg-gray-800 py-6 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-6">
+            <!-- Nombre de la tienda -->
+            <h1 class="text-4xl font-bold">
+                <!-- Mostrar "ZX" en móviles y "Zapatos Exclusivos" en pantallas más grandes -->
+                <span class="block lg:hidden">SX</span>
+                <span class="hidden lg:block">Sandalias Exclusivas</span>
+            </h1>
+
+            <!-- Menú de navegación en pantallas grandes -->
+            <nav class="hidden lg:flex space-x-6">
+                <a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a>
+                <a href="contacto.html" class="text-gray-400 hover:text-white transition">Contacto</a>
+            </nav>
+
+            <!-- Ícono de menú hamburguesa en pantallas pequeñas -->
+            <div class="lg:hidden">
+                <button onclick="toggleMenu()" class="text-gray-400 hover:text-white transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Menú desplegable móvil -->
+        <div id="mobile-menu" class="lg:hidden hidden px-6">
+            <nav class="flex flex-col space-y-4 mt-4">
+                <a href="index.html" class="text-gray-400 hover:text-white transition block text-center">Inicio</a>
+                <a href="contacto.html" class="text-gray-400 hover:text-white transition block text-center">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección de Detalle del Producto -->
+    <section class="py-12">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Galería de imágenes del producto -->
+            <div class="relative">
+                <div id="productCarousel" class="flex overflow-x-scroll no-scrollbar gap-4">
+                    <img src="img/69.jpeg" alt="Zapato Deportivo 1" class="w-full h-96 object-cover rounded-lg shadow-lg hover:scale-105 transition">
+                    <img src="img/70.jpeg" alt="Zapato Deportivo 2" class="w-full h-96 object-cover rounded-lg shadow-lg hover:scale-105 transition">
+                    <img src="img/64.jpeg" alt="Zapato Deportivo 3" class="w-full h-96 object-cover rounded-lg shadow-lg hover:scale-105 transition">
+                </div>
+                <button id="prevButton" class="absolute top-1/2 left-0 bg-gray-700 text-white p-4 rounded-full transform -translate-y-1/2 hover:bg-gray-600 transition">‹</button>
+                <button id="nextButton" class="absolute top-1/2 right-0 bg-gray-700 text-white p-4 rounded-full transform -translate-y-1/2 hover:bg-gray-600 transition">›</button>
+            </div>
+
+            <!-- Detalles del producto -->
+            <div>
+                <h2 class="text-4xl font-bold mb-4">Sandalias para damas</h2>
+                <p class="text-gray-400 mb-4">Comodidad y estilo se unen en estas sandalias para damas, perfectas para acompañarte en tu día a día. Con un diseño versátil y moderno, son ideales tanto para caminatas relajadas como para ocasiones casuales.</p>
+                <p class="text-2xl font-bold text-yellow-400 mb-6">$40.000</p>
+
+                <ul class="text-gray-400 mb-6 space-y-2">
+                    <li><span class="font-semibold text-white">Cantidad:</span> 2.</li>
+                    <li><span class="font-semibold text-white">Tallas disponibles:</span> 36, 37.</li>
+                    <li><span class="font-semibold text-white">Colores:</span> Cafe, Negro.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <br>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-6">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 Sandalias Exclusivas. Desarrollador: Jesus Pineda.</p>
+            <p>Contacto: <a href="tel:+57 304-4502180" class="text-yellow-400 hover:underline">+57 304-4502180</a> | <a href="mailto:info@zapatos.com" class="text-yellow-400 hover:underline">leirypalacio15@gmail.com</a></p>
+            <div class="mt-4">
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Facebook</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Instagram</a>
+                <a href="#" class="text-gray-400 hover:text-white mx-2">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const productCarousel = document.getElementById('productCarousel');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+
+        let scrollAmount = 0;
+        const scrollStep = 400;
+
+        nextButton.addEventListener('click', () => {
+            productCarousel.scrollBy({ left: scrollStep, behavior: 'smooth' });
+        });
+
+        prevButton.addEventListener('click', () => {
+            productCarousel.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
